@@ -1,269 +1,240 @@
+ich habe die erste und 2te hälfte schon eingefügt von oben
+
+Perfekt! Dann klick jetzt auf "Commit changes" und warte 1-2 Minuten. Dann gehe auf en.wdmindikator.com, drücke Cmd+Shift+R und schau ob die Bilder und das Video jetzt sichtbar sind!
+
+sehe es nicht
+
+Lass mich direkt nachschauen was auf der Seite geladen wird.
+
+Das Video fehlt komplett im Code — und die Bilder sind im assets/ Ordner, sollten aber eigentlich sichtbar sein.
+
+Lass mich prüfen ob die Dateien wirklich im richtigen Ordner im GitHub-Repo sind. Gehe zu:
+
+github.com/zukunftcavigelli-Trading/WDM-INDICATOR-EN
+
+Was siehst du dort — gibt es einen assets Ordner? Und wenn du draufklickst, sind Indikator_BSP_1.jpg und video-english.mp4 darin?
+
+ja
+
+Gut — die Dateien sind da. Das Problem mit dem Video ist dass es im Code fehlt.
+
+Gehe in GitHub → index.html → Bleistift ✏️ und suche mit Cmd+F nach:
+
+video-english
+Wie viele Treffer findest du?
+
+4
+
+Gut, das Video ist also im Code. Dann ist das Problem wahrscheinlich der Browser-Cache oder Netlify hat noch nicht aktualisiert.
+
+Versuche die Seite in einem privaten Fenster zu öffnen:
+
+Mac: Cmd+Shift+N (Chrome) oder Cmd+Shift+P (Safari/Firefox)
+Dann gehe auf en.wdmindikator.com — siehst du jetzt die Bilder und das Video?
+
+nein und es sind immernoch zu viele video felder da
+
+Das Problem ist dass der Code doppelt drin ist. Wir müssen alles nochmal löschen und sauber neu einfügen.
+
+Gehe in GitHub → index.html → Bleistift ✏️ → dann:
+
+Cmd+A (alles markieren)
+Delete (alles löschen)
+Bestätige mir dass der Editor jetzt komplett leer ist
+Dann gebe ich dir den Code in zwei sauberen Teilen.
+
+alles ist leer
+
+Perfekt! Hier ist Teil 1 — kopieren und einfügen:
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230d0d0d'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' fill='%23C9A84C' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <title>WDM Indicator – TradingView Indicator for Gold &amp; Bitcoin</title>
-<meta name="description" content="WDM replaces 10+ TradingView indicators with one tool that describes supply and demand zones as clear text – for Gold (XAUUSD) and Bitcoin.">
+<meta name="description" content="WDM replaces 10+ TradingView indicators with one tool that describes supply and demand zones clearly – for Gold (XAUUSD) and Bitcoin.">
 <meta name="author" content="WDM Indicator">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0d0d0d">
-<meta name="language" content="en">
-<meta http-equiv="content-language" content="en">
 <link rel="canonical" href="https://en.wdmindikator.com/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="WDM Indicator">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="WDM Indicator – One TradingView Indicator for Gold &amp; Bitcoin">
-<meta property="og:description" content="One indicator instead of ten. WDM describes supply and demand zones as clear text. 85% profitable zones on Gold and Bitcoin.">
+<meta property="og:title" content="WDM Indicator – TradingView Indicator for Gold &amp; Bitcoin">
+<meta property="og:description" content="One indicator instead of ten. 85% profitable zones on Gold and Bitcoin.">
 <meta property="og:url" content="https://en.wdmindikator.com/">
 <meta property="og:image" content="https://en.wdmindikator.com/assets/Indikator_BSP_1.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="WDM Indicator – TradingView Indicator for Gold &amp; Bitcoin">
-<meta name="twitter:description" content="One indicator instead of ten. Supply and demand zones as clear text. 85% profitable zones on Gold and Bitcoin.">
-<meta name="twitter:image" content="https://en.wdmindikator.com/assets/Indikator_BSP_1.jpg">
-<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1227729002638679');fbq('track','PageView');</script>
 <style>
-  @font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:swap;src:url(assets/fonts/inter-latin.woff2) format('woff2')}
-  @font-face{font-family:'Playfair Display';font-style:normal;font-weight:600 900;font-display:swap;src:url(assets/fonts/playfair-latin.woff2) format('woff2')}
-  :root{--bg:#0d0d0d;--bg-alt:#111111;--bg-deep:#1a1008;--gold:#C9A84C;--gold-bright:#D4A017;--green:#16a34a;--green-bright:#22c55e;--text:#f5f5f5;--muted:#a9a39a;--border:rgba(201,168,76,.22);--card:#161616;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--maxw:1140px;--radius:16px}
-  *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-  body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  h1,h2,h3{font-family:var(--serif);line-height:1.12;font-weight:800}
-  a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}section{padding:72px 0}
-  .center{text-align:center}.muted{color:var(--muted)}
-  .eyebrow{display:inline-block;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;border:1px solid var(--border);border-radius:999px;padding:7px 16px;margin-bottom:22px;background:rgba(201,168,76,.06)}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-weight:800;font-size:17px;padding:16px 30px;border-radius:12px;border:0;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s ease;line-height:1;text-align:center}
-  .btn-green{background:var(--green-bright);color:#04210f;box-shadow:0 10px 30px rgba(34,197,94,.35)}.btn-green:hover{background:#1fb858;transform:translateY(-2px)}
-  .btn-pulse{animation:pulse 2s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.55),0 10px 30px rgba(34,197,94,.35)}70%{box-shadow:0 0 0 18px rgba(34,197,94,0),0 10px 30px rgba(34,197,94,.35)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0),0 10px 30px rgba(34,197,94,.35)}}
-  .btn-gold-outline{background:transparent;color:var(--gold);border:1.5px solid var(--gold);font-weight:700}.btn-gold-outline:hover{background:var(--gold);color:#1a1008;transform:translateY(-2px)}
-  .btn-gold{background:linear-gradient(180deg,#d8b75a,#bd9a3e);color:#1a1008;box-shadow:0 8px 24px rgba(201,168,76,.3)}.btn-gold:hover{transform:translateY(-2px)}
-  .btn-ghost{background:transparent;color:var(--text);border:1.5px solid rgba(255,255,255,.18);font-weight:600}.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-  .btn-lg{font-size:19px;padding:19px 38px}.btn-block{width:100%}
-  .topbar{position:sticky;top:0;z-index:60;background:linear-gradient(90deg,#2a1a06,#3a2408,#2a1a06);border-bottom:1px solid var(--border);color:#ffe9b0;font-weight:700;font-size:14px;text-align:center;padding:9px 14px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
-  .topbar .count{font-variant-numeric:tabular-nums;background:rgba(0,0,0,.35);border:1px solid var(--border);padding:3px 10px;border-radius:7px;color:#fff;letter-spacing:.04em}
-  .nav{position:sticky;top:0;z-index:55;background:rgba(13,13,13,0);transition:background .3s ease,box-shadow .3s ease,padding .3s ease;padding:18px 0}
-  .nav.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(0,0,0,.5);padding:12px 0}
-  .nav .inner{display:flex;align-items:center;justify-content:space-between}
-  .logo{font-family:var(--serif);font-weight:900;font-size:26px;letter-spacing:.04em;color:#fff}.logo span{color:var(--gold)}
-  .hero{padding:64px 0 56px;background:radial-gradient(900px 420px at 50% -8%,rgba(201,168,76,.16),transparent 60%),linear-gradient(180deg,var(--bg-deep),var(--bg) 70%);text-align:center}
-  .hero h1{font-size:clamp(34px,6vw,62px);color:var(--gold-bright);margin:6px auto 18px;max-width:14ch}
-  .hero .sub{font-size:clamp(17px,2.4vw,22px);color:var(--text);max-width:640px;margin:0 auto 14px}.hero .sub b{color:var(--gold)}
-  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:28px 0 16px}
-  .socialproof{font-weight:700;color:#ffd98a;font-size:15px;margin-top:8px}
-  .securenote{color:var(--muted);font-size:13.5px;margin-top:6px}
-  .video-shell{max-width:820px;margin:30px auto 0;background:#000;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03) inset}
-  .video-shell video{width:100%;display:block;aspect-ratio:16/9;background:#000;object-fit:cover}
-  .video-cap{color:var(--muted);font-size:14px;margin-top:14px;text-align:center}
-  .metrics{background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:34px 0}
-  .metrics .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
-  .metric .n{font-family:var(--serif);font-size:clamp(24px,3vw,36px);color:var(--gold);font-weight:800}
-  .metric .l{color:var(--muted);font-size:13px;letter-spacing:.04em;margin-top:4px}
-  .sec-head{text-align:center;max-width:720px;margin:0 auto 44px}
-  .sec-head h2{font-size:clamp(28px,4.4vw,44px);color:var(--gold-bright);margin-bottom:14px}
-  .sec-head p{color:var(--muted);font-size:17px}
-  .urgent{color:#ffb84d;font-weight:700;font-size:14px;letter-spacing:.04em;display:block;margin-top:14px}
-  .ps{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:920px;margin:0 auto}
-  .ps-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px}
-  .ps-card.pain{border-color:rgba(239,68,68,.28)}.ps-card h3{font-family:var(--sans);font-size:18px;font-weight:800;margin-bottom:18px}
-  .ps-card.pain h3{color:#f87171}.ps-card.sol h3{color:var(--green-bright)}
-  .ps-list{list-style:none;display:flex;flex-direction:column;gap:14px}
-  .ps-list li{display:flex;gap:12px;align-items:flex-start;font-size:16px}.ps-list .ic{flex:0 0 auto;font-size:18px;line-height:1.3}
-  .about{background:var(--bg-alt)}.about .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
-  .about h2{font-size:clamp(26px,4vw,40px);color:var(--gold-bright);margin-bottom:18px}
-  .about p{color:var(--text);margin-bottom:14px;font-size:16.5px}
-  .feat{list-style:none;display:flex;flex-direction:column;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
-  .feat li{display:flex;gap:12px;align-items:flex-start;font-size:16px}.feat .chk{color:var(--green-bright);font-weight:900;flex:0 0 auto}
-  .tcards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .tcard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:14px}
-  .tcard .head{display:flex;align-items:center;gap:13px}
-  .avatar{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#1a1008;font-size:17px;flex:0 0 auto}
-  .tcard .name{font-weight:700}.tcard .role{color:var(--muted);font-size:13px}
-  .stars{color:var(--gold);letter-spacing:2px;font-size:14px}.tcard q{font-style:italic;color:#e8e3da;font-size:15.5px}
-  .process{background:var(--bg-alt)}
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
-  .step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 22px;text-align:center;position:relative}
-  .step .num{counter-increment:step;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;background:linear-gradient(180deg,#d8b75a,#bd9a3e);color:#1a1008;font-family:var(--serif);font-weight:800;font-size:22px}
-  .step .num::before{content:counter(step)}.step .ic{font-size:24px;margin-bottom:8px}
-  .step h3{font-family:var(--sans);font-size:17px;font-weight:800;margin-bottom:6px}.step p{color:var(--muted);font-size:14px}
-  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:960px;margin:0 auto}
-  .shot{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--card)}
-  .shot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
-  .shot .cap{padding:16px 18px;font-size:14.5px;color:#e8e3da}.shot .cap b{color:var(--gold)}
-  .pricing{background:linear-gradient(180deg,#08130c,#0b1a10);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .scarcity-pill{display:inline-flex;gap:8px;align-items:center;background:rgba(255,184,77,.1);border:1px solid rgba(255,184,77,.4);color:#ffc777;font-weight:700;font-size:14px;padding:9px 18px;border-radius:999px;margin:0 auto 26px}
-  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1060px;margin:0 auto}
-  .plan{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:34px 30px;position:relative;display:flex;flex-direction:column}
-  .plan.best{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 20px 50px rgba(201,168,76,.18)}
-  .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border-radius:999px;white-space:nowrap}
-  .badge.gold{background:linear-gradient(180deg,#d8b75a,#bd9a3e);color:#1a1008}
-  .badge.disc{background:#16331f;color:var(--green-bright);border:1px solid rgba(34,197,94,.4)}
-  .plan .pname{font-family:var(--serif);font-size:24px;color:#fff;margin-bottom:6px}
-  .plan .pdesc{color:var(--muted);font-size:14px;margin-bottom:18px}
-  .price{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
-  .price .now{font-family:var(--serif);font-size:42px;font-weight:800;color:var(--gold)}
-  .price .was{color:var(--muted);text-decoration:line-through;font-size:20px}.price .per{color:var(--muted);font-size:14px}
-  .plan ul{list-style:none;margin:20px 0 26px;display:flex;flex-direction:column;gap:11px}
-  .plan ul li{display:flex;gap:10px;font-size:15px}.plan ul li .chk{color:var(--green-bright);font-weight:900}
-  .plan .spend{margin-top:auto}.plan-foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:12px}
-  .guarantee{background:var(--bg)}
-  .gbox{max-width:760px;margin:0 auto;text-align:center;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:34px 28px}
-  .gbox .shield{font-size:40px;margin-bottom:10px}.gbox h3{font-family:var(--serif);font-size:24px;color:var(--gold-bright);margin-bottom:8px}.gbox p{color:var(--muted)}
-  .faq{background:var(--bg-alt)}.acc{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
-  .qa{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-  .qa button{width:100%;text-align:left;background:transparent;border:0;cursor:pointer;color:#fff;font-family:var(--sans);font-weight:700;font-size:16.5px;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px}
-  .qa button .pm{color:var(--gold);font-size:24px;flex:0 0 auto;transition:transform .25s ease}
-  .qa.open button .pm{transform:rotate(45deg)}.qa .ans{max-height:0;overflow:hidden;transition:max-height .3s ease}
-  .qa .ans p{padding:0 22px 20px;color:var(--muted);font-size:15.5px}
-  .final{text-align:center;background:linear-gradient(180deg,#0c2417,#0a1b10);border-top:1px solid var(--border)}
-  .final h2{font-size:clamp(28px,5vw,46px);color:#fff;margin-bottom:10px}.final p{color:#bfe6cd;margin-bottom:26px;font-size:17px}
-  .community{background:var(--bg)}
-  .community-card{max-width:780px;margin:0 auto;text-align:center;background:linear-gradient(160deg,#1a1a1a,#0d0d0d);border:2px solid var(--gold);border-radius:22px;padding:48px 32px;box-shadow:0 0 40px rgba(201,168,76,.25)}
-  .community-card h2{font-size:clamp(26px,4vw,40px);color:var(--gold);margin-bottom:14px}
-  .community-card p{color:var(--text);max-width:520px;margin:0 auto 28px;font-size:17px;opacity:.92}
-  .contact .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch;max-width:960px;margin:0 auto}
-  .contact h2{font-size:clamp(26px,4vw,38px);color:var(--gold-bright);margin-bottom:12px}.contact p{color:var(--muted);margin-bottom:22px}
-  form{display:flex;flex-direction:column;gap:14px}
-  .field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px;letter-spacing:.03em}
-  .field input,.field textarea{width:100%;background:#0c0c0c;border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:15px;padding:13px 14px;resize:vertical}
-  .field input:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
-  .tg-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column}
-  .tg-card .tg-note{margin-top:auto;padding-top:18px}.tg-card h3{font-family:var(--serif);color:#fff;font-size:22px;margin-bottom:10px}.tg-card p{margin-bottom:20px}
-  .form-ok{display:none;color:var(--green-bright);font-weight:700;font-size:14px;margin-top:4px}
-  footer{background:#070707;border-top:1px solid var(--border);padding:46px 0 36px}
-  .foot-top{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:24px}
-  .foot-links{display:flex;gap:22px;flex-wrap:wrap}
-  .foot-share{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:22px;font-size:13px}
-  .foot-share span{color:var(--muted)}.foot-share a{color:var(--gold);border:1px solid var(--border);padding:5px 12px;border-radius:8px}
-  .foot-share a:hover{background:var(--gold);color:#1a1008}.foot-links a{color:var(--muted);font-size:14px}.foot-links a:hover{color:var(--gold)}
-  .disclaimer{color:#948e84;font-size:12px;line-height:1.7;border-top:1px solid rgba(255,255,255,.06);padding-top:20px}
-  .copy{color:#948e84;font-size:13px;margin-top:14px}
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
-  @media(max-width:880px){section{padding:56px 0}.metrics .grid{grid-template-columns:repeat(2,1fr);gap:24px}.ps{grid-template-columns:1fr}.about .cols{grid-template-columns:1fr;gap:28px}.tcards{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr}.plans{grid-template-columns:1fr;max-width:440px}.contact .cols{grid-template-columns:1fr}}
-  @media(max-width:520px){.steps{grid-template-columns:1fr}.hero-ctas .btn{width:100%}.topbar{font-size:13px;gap:8px}.logo{font-size:22px}}
-  @media(prefers-reduced-motion:reduce){.btn-pulse{animation:none}.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+:root{--bg:#0d0d0d;--bg-alt:#111111;--bg-deep:#1a1008;--gold:#C9A84C;--gold-bright:#D4A017;--green:#16a34a;--green-bright:#22c55e;--text:#f5f5f5;--muted:#a9a39a;--border:rgba(201,168,76,.22);--card:#161616;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--maxw:1140px;--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--serif);line-height:1.12;font-weight:800}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+.center{text-align:center}
+.muted{color:var(--muted)}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;border:1px solid var(--border);border-radius:999px;padding:7px 16px;margin-bottom:22px;background:rgba(201,168,76,.06)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-weight:800;font-size:17px;padding:16px 30px;border-radius:12px;border:0;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s;line-height:1;text-align:center}
+.btn-green{background:var(--green-bright);color:#04210f;box-shadow:0 10px 30px rgba(34,197,94,.35)}
+.btn-green:hover{background:#1fb858;transform:translateY(-2px)}
+.btn-pulse{animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.55),0 10px 30px rgba(34,197,94,.35)}70%{box-shadow:0 0 0 18px rgba(34,197,94,0),0 10px 30px rgba(34,197,94,.35)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0),0 10px 30px rgba(34,197,94,.35)}}
+.btn-gold-outline{background:transparent;color:var(--gold);border:1.5px solid var(--gold);font-weight:700}
+.btn-gold-outline:hover{background:var(--gold);color:#1a1008;transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(180deg,#d8b75a,#bd9a3e);color:#1a1008;box-shadow:0 8px 24px rgba(201,168,76,.3)}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--text);border:1.5px solid rgba(255,255,255,.18);font-weight:600}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn-lg{font-size:19px;padding:19px 38px}
+.btn-block{width:100%}
+.topbar{position:sticky;top:0;z-index:60;background:linear-gradient(90deg,#2a1a06,#3a2408,#2a1a06);border-bottom:1px solid var(--border);color:#ffe9b0;font-weight:700;font-size:14px;text-align:center;padding:9px 14px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.topbar .count{font-variant-numeric:tabular-nums;background:rgba(0,0,0,.35);border:1px solid var(--border);padding:3px 10px;border-radius:7px;color:#fff;letter-spacing:.04em}
+.nav{position:sticky;top:0;z-index:55;background:transparent;transition:background .3s,box-shadow .3s,padding .3s;padding:18px 0}
+.nav.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(0,0,0,.5);padding:12px 0}
+.nav .inner{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--serif);font-weight:900;font-size:26px;letter-spacing:.04em;color:#fff}
+.logo span{color:var(--gold)}
+.hero{padding:64px 0 56px;background:radial-gradient(900px 420px at 50% -8%,rgba(201,168,76,.16),transparent 60%),linear-gradient(180deg,var(--bg-deep),var(--bg) 70%);text-align:center}
+.hero h1{font-size:clamp(34px,6vw,62px);color:var(--gold-bright);margin:6px auto 18px;max-width:14ch}
+.hero .sub{font-size:clamp(17px,2.4vw,22px);max-width:640px;margin:0 auto 14px}
+.hero .sub b{color:var(--gold)}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:28px 0 16px}
+.socialproof{font-weight:700;color:#ffd98a;font-size:15px;margin-top:8px}
+.securenote{color:var(--muted);font-size:13.5px;margin-top:6px}
+.video-shell{max-width:820px;margin:30px auto 0;background:#000;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+.video-shell video{width:100%;display:block;aspect-ratio:16/9;background:#000;object-fit:cover}
+.video-cap{color:var(--muted);font-size:14px;margin-top:14px;text-align:center}
+.metrics{background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:34px 0}
+.metrics .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
+.metric .n{font-family:var(--serif);font-size:clamp(24px,3vw,36px);color:var(--gold);font-weight:800}
+.metric .l{color:var(--muted);font-size:13px;margin-top:4px}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 44px}
+.sec-head h2{font-size:clamp(28px,4.4vw,44px);color:var(--gold-bright);margin-bottom:14px}
+.sec-head p{color:var(--muted);font-size:17px}
+.urgent{color:#ffb84d;font-weight:700;font-size:14px;display:block;margin-top:14px}
+.ps{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:920px;margin:0 auto}
+.ps-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px}
+.ps-card.pain{border-color:rgba(239,68,68,.28)}
+.ps-card h3{font-family:var(--sans);font-size:18px;font-weight:800;margin-bottom:18px}
+.ps-card.pain h3{color:#f87171}
+.ps-card.sol h3{color:var(--green-bright)}
+.ps-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.ps-list li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+.ps-list .ic{flex:0 0 auto;font-size:18px;line-height:1.3}
+.about{background:var(--bg-alt)}
+.about .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.about h2{font-size:clamp(26px,4vw,40px);color:var(--gold-bright);margin-bottom:18px}
+.about p{margin-bottom:14px;font-size:16.5px}
+.feat{list-style:none;display:flex;flex-direction:column;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+.feat li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+.feat .chk{color:var(--green-bright);font-weight:900;flex:0 0 auto}
+.tcards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tcard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:14px}
+.tcard .head{display:flex;align-items:center;gap:13px}
+.avatar{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#1a1008;font-size:17px;flex:0 0 auto}
+.tcard .name{font-weight:700}
+.tcard .role{color:var(--muted);font-size:13px}
+.stars{color:var(--gold);letter-spacing:2px;font-size:14px}
+.tcard q{font-style:italic;color:#e8e3da;font-size:15.5px}
+.process{background:var(--bg-alt)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
+.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 22px;text-align:center;position:relative}
+.step .num{counter-increment:step;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;background:linear-gradient(180deg,#d8b75a,#bd9a3e);color:#1a1008;font-family:var(--serif);font-weight:800;font-size:22px}
+.step .num::before{content:counter(step)}
+.step .ic{font-size:24px;margin-bottom:8px}
+.step h3{font-family:var(--sans);font-size:17px;font-weight:800;margin-bottom:6px}
+.step p{color:var(--muted);font-size:14px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:960px;margin:0 auto}
+.shot{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--card)}
+.shot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.shot .cap{padding:16px 18px;font-size:14.5px;color:#e8e3da}
+.shot .cap b{color:var(--gold)}
+.pricing{background:linear-gradient(180deg,#08130c,#0b1a10);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.scarcity-pill{display:inline-flex;gap:8px;align-items:center;background:rgba(255,184,77,.1);border:1px solid rgba(255,184,77,.4);color:#ffc777;font-weight:700;font-size:14px;padding:9px 18px;border-radius:999px;margin:0 auto 26px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1060px;margin:0 auto}
+.plan{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:34px 30px;position:relative;display:flex;flex-direction:column}
+.plan.best{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 20px 50px rgba(201,168,76,.18)}
+.badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border-radius:999px;white-space:nowrap}
+.badge.gold{background:linear-gradient(180deg,#d8b75a,#bd9a3e);color:#1a1008}
+.badge.disc{background:#16331f;color:var(--green-bright);border:1px solid rgba(34,197,94,.4)}
+.plan .pname{font-family:var(--serif);font-size:24px;color:#fff;margin-bottom:6px}
+.plan .pdesc{color:var(--muted);font-size:14px;margin-bottom:18px}
+.price{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.price .now{font-family:var(--serif);font-size:42px;font-weight:800;color:var(--gold)}
+.price .was{color:var(--muted);text-decoration:line-through;font-size:20px}
+.plan ul{list-style:none;margin:20px 0 26px;display:flex;flex-direction:column;gap:11px}
+.plan ul li{display:flex;gap:10px;font-size:15px}
+.plan ul li .chk{color:var(--green-bright);font-weight:900}
+.plan .spend{margin-top:auto}
+.plan-foot{color:var(--muted);font-size:12.5px;text-align:center;margin-top:12px}
+.guarantee{background:var(--bg)}
+.gbox{max-width:760px;margin:0 auto;text-align:center;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:34px 28px}
+.gbox .shield{font-size:40px;margin-bottom:10px}
+.gbox h3{font-family:var(--serif);font-size:24px;color:var(--gold-bright);margin-bottom:8px}
+.gbox p{color:var(--muted)}
+.faq{background:var(--bg-alt)}
+.acc{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.qa{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa button{width:100%;text-align:left;background:transparent;border:0;cursor:pointer;color:#fff;font-family:var(--sans);font-weight:700;font-size:16.5px;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.qa button .pm{color:var(--gold);font-size:24px;flex:0 0 auto;transition:transform .25s}
+.qa.open button .pm{transform:rotate(45deg)}
+.qa .ans{max-height:0;overflow:hidden;transition:max-height .3s}
+.qa .ans p{padding:0 22px 20px;color:var(--muted);font-size:15.5px}
+.final{text-align:center;background:linear-gradient(180deg,#0c2417,#0a1b10);border-top:1px solid var(--border)}
+.final h2{font-size:clamp(28px,5vw,46px);color:#fff;margin-bottom:10px}
+.final p{color:#bfe6cd;margin-bottom:26px;font-size:17px}
+.community{background:var(--bg)}
+.community-card{max-width:780px;margin:0 auto;text-align:center;background:linear-gradient(160deg,#1a1a1a,#0d0d0d);border:2px solid var(--gold);border-radius:22px;padding:48px 32px;box-shadow:0 0 40px rgba(201,168,76,.25)}
+.community-card h2{font-size:clamp(26px,4vw,40px);color:var(--gold);margin-bottom:14px}
+.community-card p{color:var(--text);max-width:520px;margin:0 auto 28px;font-size:17px}
+.contact .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:960px;margin:0 auto}
+.contact h2{font-size:clamp(26px,4vw,38px);color:var(--gold-bright);margin-bottom:12px}
+.contact p{color:var(--muted);margin-bottom:22px}
+form{display:flex;flex-direction:column;gap:14px}
+.field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+.field input,.field textarea{width:100%;background:#0c0c0c;border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:15px;padding:13px 14px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+.tg-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column}
+.tg-card h3{font-family:var(--serif);color:#fff;font-size:22px;margin-bottom:10px}
+.tg-card p{margin-bottom:20px}
+.form-ok{display:none;color:var(--green-bright);font-weight:700;font-size:14px;margin-top:4px}
+footer{background:#070707;border-top:1px solid var(--border);padding:46px 0 36px}
+.foot-top{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.foot-share{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:22px;font-size:13px}
+.foot-share span{color:var(--muted)}
+.foot-share a{color:var(--gold);border:1px solid var(--border);padding:5px 12px;border-radius:8px}
+.foot-links a{color:var(--muted);font-size:14px}
+.disclaimer{color:#948e84;font-size:12px;line-height:1.7;border-top:1px solid rgba(255,255,255,.06);padding-top:20px}
+.copy{color:#948e84;font-size:13px;margin-top:14px}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:880px){section{padding:56px 0}.metrics .grid{grid-template-columns:repeat(2,1fr)}.ps{grid-template-columns:1fr}.about .cols{grid-template-columns:1fr}.tcards{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr}.plans{grid-template-columns:1fr;max-width:440px}.contact .cols{grid-template-columns:1fr}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}.hero-ctas .btn{width:100%}}
+@media(prefers-reduced-motion:reduce){.btn-pulse{animation:none}.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<div class="topbar">
-  <span>⚡ Only <b>7 spots left</b> — Price increases in</span>
-  <span class="count" id="countdown">48:00:00</span>
-</div>
-<header class="nav" id="nav">
-  <div class="wrap inner">
-    <div class="logo">W<span>DM</span></div>
-    <a href="#pricing" class="btn btn-gold-outline" style="padding:11px 22px;font-size:15px">Get Access</a>
-  </div>
-</header>
-<main>
-<section class="hero" id="top">
-  <div class="wrap">
-    <span class="eyebrow">Trusted by professional traders</span>
-    <h1>One Indicator. Full Clarity. Real Profit.</h1>
-    <p class="sub">Forget 10 indicators. <b>WDM</b> replaces them all with <b>one</b> tool that describes supply and demand zones as <b>text</b> — no more visual chaos. <b>85% of displayed zones</b> are profitable zones. Tested on Gold and Bitcoin.</p>
-    <div class="hero-ctas">
-      <a href="#pricing" class="btn btn-green btn-lg btn-pulse">GET WDM NOW — from €99/month</a>
-      <a href="#video" class="btn btn-ghost btn-lg">See how it works ↓</a>
-    </div>
-    <div class="socialproof">🔥 847 traders are using WDM right now</div>
-    <div class="securenote">🔒 Secure payment · Instant access · 24/7 Support</div>
-    <div style="margin-top:18px">
-      <a href="https://t.me/+sUT1GzySFhIyNzI0" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline">✈️ Join free Telegram group</a>
-    </div>
-    <div class="video-shell reveal">
-      <video src="assets/video-english.mp4" poster="assets/video-poster.jpg" autoplay muted loop controls playsinline preload="metadata"></video>
-    </div>
-    <p class="video-cap">See how the indicator works (1 min)</p>
-  </div>
-</section>
-<section class="metrics" style="padding:34px 0">
-  <div class="wrap">
-    <div class="grid">
-      <div class="metric reveal"><div class="n">847+</div><div class="l">Traders</div></div>
-      <div class="metric reveal"><div class="n">85%</div><div class="l">Zone Accuracy</div></div>
-      <div class="metric reveal"><div class="n">BTC + GOLD</div><div class="l">Markets</div></div>
-      <div class="metric reveal"><div class="n">24/7</div><div class="l">Support</div></div>
-    </div>
-  </div>
-</section>
-<section>
-  <div class="wrap">
-    <div class="sec-head reveal"><h2>End the Indicator Chaos</h2><p>Most traders drown in signals. WDM gives you clear words instead.</p></div>
-    <div class="ps">
-      <div class="ps-card pain reveal"><h3>Without WDM</h3><ul class="ps-list"><li><span class="ic">❌</span> Too many indicators cluttering your chart</li><li><span class="ic">❌</span> Unclear, contradictory signals</li><li><span class="ic">❌</span> You miss the best entry points</li></ul></div>
-      <div class="ps-card sol reveal"><h3>With WDM</h3><ul class="ps-list"><li><span class="ic">✅</span> One single indicator for everything</li><li><span class="ic">✅</span> Clear text description of every zone</li><li><span class="ic">✅</span> 85% accuracy of displayed zones</li></ul></div>
-    </div>
-    <span class="urgent center" style="display:block">⏳ The launch price is only valid while spots are available.</span>
-  </div>
-</section>
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="cols">
-      <div class="reveal">
-        <h2>Text Instead of Visual Noise</h2>
-        <p>WDM was built for traders who need to make decisions — not guesses. Instead of a dozen overlapping lines, you read one clear sentence: where the zone is, how strong it is, and what's likely to happen next.</p>
-        <p>The algorithm analyses supply and demand zones in real time on <b>Gold (XAUUSD)</b> and <b>Bitcoin (BTC)</b> and translates them into understandable language. Make better decisions faster — on any timeframe.</p>
-      </div>
-      <ul class="feat reveal">
-        <li><span class="chk">✓</span> Replaces 10+ classic chart indicators</li>
-        <li><span class="chk">✓</span> Text description of every market zone</li>
-        <li><span class="chk">✓</span> 85% of displayed zones are winning zones</li>
-        <li><span class="chk">✓</span> Optimised for Gold &amp; Bitcoin</li>
-        <li><span class="chk">✓</span> Works directly inside TradingView</li>
-        <li><span class="chk">✓</span> Community support 24/7 via Telegram</li>
-      </ul>
-    </div>
-  </div>
-</section>
-<section id="video">
-  <div class="wrap">
-    <div class="sec-head reveal"><h2>Learn Everything in 60 Seconds</h2><p>See the indicator live in the chart — and judge for yourself.</p></div>
-    <div class="video-shell reveal">
-      <video src="assets/video-english.mp4" poster="assets/video-poster.jpg" controls playsinline muted preload="none"></video>
-    </div>
-    <div class="center" style="margin-top:26px"><a href="#pricing" class="btn btn-green btn-lg">Get Access Now — from €99</a></div>
-  </div>
-</section>
-<section>
-  <div class="wrap">
-    <div class="sec-head reveal"><h2>What Traders Say</h2><p>Real words from the WDM community.</p></div>
-    <div class="tcards">
-      <div class="tcard reveal"><div class="head"><div class="avatar" style="background:linear-gradient(135deg,#d8b75a,#bd9a3e)">MK</div><div><div class="name">Markus K.</div><div class="role">Day Trader · Gold</div></div></div><div class="stars">★★★★★</div><q>Since I started using WDM, my chart is finally clean. The zones described in words completely changed my XAUUSD trade plan.</q></div>
-      <div class="tcard reveal"><div class="head"><div class="avatar" style="background:linear-gradient(135deg,#22c55e,#16a34a)">SL</div><div><div class="name">Sophie L.</div><div class="role">Swing Trader · BTC</div></div></div><div class="stars">★★★★★</div><q>I used to stack 8 indicators. Now I read one sentence and know exactly what to do. On Bitcoin it's a real game changer.</q></div>
-      <div class="tcard reveal"><div class="head"><div class="avatar" style="background:linear-gradient(135deg,#c084fc,#7c3aed)">TR</div><div><div class="name">Thomas R.</div><div class="role">Trader · Gold &amp; BTC</div></div></div><div class="stars">★★★★★</div><q>Clarity instead of gut feeling. The zone accuracy convinced me — and the Telegram support is top class.</q></div>
-    </div>
-  </div>
-</section>
-<div class="topbar">
+  <div class="topbar">
   <span>⚡ Only <b>7 spots left</b> — price increases in</span>
   <span class="count" id="countdown">48:00:00</span>
 </div>
-
-<!-- NAV -->
 <header class="nav" id="nav">
   <div class="wrap inner">
     <div class="logo">W<span>DM</span></div>
     <a href="#pricing" class="btn btn-gold-outline" style="padding:11px 22px;font-size:15px">Get Access</a>
   </div>
 </header>
-
 <main>
-<!-- 2. HERO -->
 <section class="hero" id="top">
   <div class="wrap">
     <span class="eyebrow">Used by professional traders</span>
     <h1>One Indicator. Full Clarity. Real Profit.</h1>
-    <p class="sub">
-      Forget 10 indicators. <b>WDM</b> replaces them all with <b>one</b> tool that describes supply and
-      demand zones as <b>text</b> — no more visual chaos.
-      <b>85% of the displayed zones</b> are profitable zones. Verified on Gold and Bitcoin.
-    </p>
-
+    <p class="sub">Forget 10 indicators. <b>WDM</b> replaces them all with <b>one</b> tool that describes supply and demand zones as <b>text</b> — no more visual chaos. <b>85% of the displayed zones</b> are profitable zones. Verified on Gold and Bitcoin.</p>
     <div class="hero-ctas">
       <a href="#pricing" class="btn btn-green btn-lg btn-pulse">GET WDM NOW — from €99/month</a>
       <a href="#video" class="btn btn-ghost btn-lg">See how it works ↓</a>
@@ -271,18 +242,14 @@
     <div class="socialproof">🔥 847 traders are using WDM right now</div>
     <div class="securenote">🔒 Secure payment · Immediate access · Support 24/7</div>
     <div style="margin-top:18px">
-      <a href="https://t.me/+sUT1GzySFhIyNzI0" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline">✈️ Join the free Telegram group</a>
+      <a href="https://t.me/WladOfBuild1" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline">✈️ Join the free Telegram group</a>
     </div>
-
-    <!-- Hero video -->
     <div class="video-shell reveal">
       <video src="assets/video-english.mp4" poster="assets/video-poster.jpg" autoplay muted loop controls playsinline preload="metadata"></video>
     </div>
     <p class="video-cap">See how the indicator works (1 min)</p>
   </div>
 </section>
-
-<!-- 3. TRUST METRICS -->
 <section class="metrics" style="padding:34px 0">
   <div class="wrap">
     <div class="grid">
@@ -293,8 +260,6 @@
     </div>
   </div>
 </section>
-
-<!-- 4. PAIN -> SOLUTION -->
 <section>
   <div class="wrap">
     <div class="sec-head reveal">
@@ -319,26 +284,16 @@
         </ul>
       </div>
     </div>
-    <span class="urgent center" style="display:block">⏳ The introductory price is only valid while spots are available.</span>
+    <span class="urgent center">⏳ The introductory price is only valid while spots are available.</span>
   </div>
 </section>
-
-<!-- 5. ABOUT THE INDICATOR -->
 <section class="about" id="ueber">
   <div class="wrap">
     <div class="cols">
       <div class="reveal">
         <h2>Text instead of visual noise</h2>
-        <p>
-          WDM was built for traders who need to make decisions — not guess.
-          Instead of a dozen overlapping lines, you read one clear sentence:
-          where the zone is, how strong it is, and what is likely next.
-        </p>
-        <p>
-          The algorithm analyzes supply and demand zones in real time on
-          <b>Gold (XAUUSD)</b> and <b>Bitcoin (BTC)</b> and translates them into understandable language.
-          This helps you make better decisions faster — on any timeframe.
-        </p>
+        <p>WDM was built for traders who need to make decisions — not guess. Instead of a dozen overlapping lines, you read one clear sentence: where the zone is, how strong it is, and what is likely next.</p>
+        <p>The algorithm analyzes supply and demand zones in real time on <b>Gold (XAUUSD)</b> and <b>Bitcoin (BTC)</b> and translates them into understandable language. This helps you make better decisions faster — on any timeframe.</p>
       </div>
       <ul class="feat reveal">
         <li><span class="chk">✓</span> Replaces 10+ classic chart indicators</li>
@@ -351,8 +306,6 @@
     </div>
   </div>
 </section>
-
-<!-- VIDEO CTA SECTION -->
 <section id="video">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -367,8 +320,6 @@
     </div>
   </div>
 </section>
-
-<!-- 6. TESTIMONIALS -->
 <section>
   <div class="wrap">
     <div class="sec-head reveal">
@@ -403,8 +354,6 @@
     </div>
   </div>
 </section>
-
-<!-- 7. PROCESS -->
 <section class="process" id="ablauf">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -419,8 +368,6 @@
     </div>
   </div>
 </section>
-
-<!-- 8. RESULTS GALLERY -->
 <section id="ergebnisse">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -428,15 +375,13 @@
       <p>Example setups on Gold and Bitcoin.</p>
     </div>
     <div class="gallery">
-      <div class="shot reveal"><img class="frame" src="assets/Indikator_BSP_1.jpg" alt="WDM Indicator on Gold (XAUUSD)" loading="lazy"><div class="cap"><b>XAUUSD · M15</b> — Demand zone marked as text, clean long entry.</div></div>
-      <div class="shot reveal"><img class="frame" src="assets/BTC-Indikator_BSP2.jpg" alt="WDM Indicator on Bitcoin (BTC/USD)" loading="lazy"><div class="cap"><b>BTC/USD · H1</b> — Supply zone detected, short before the pullback.</div></div>
-      <div class="shot reveal"><img class="frame" src="assets/photo_2026-05-26_23.16.21.jpeg" alt="WDM Indicator setup on Gold" loading="lazy"><div class="cap"><b>Gold · H4</b> — Strong zone confirmed, multi-day trend captured.</div></div>
-      <div class="shot reveal"><img class="frame" src="assets/photo_2026-05-26_23.16.35.jpeg" alt="WDM Indicator setup on Bitcoin" loading="lazy"><div class="cap"><b>BTC · M30</b> — Text signal avoids false breakout, precise re-entry.</div></div>
+      <div class="shot reveal"><img src="assets/Indikator_BSP_1.jpg" alt="WDM Indicator on Gold (XAUUSD)" loading="lazy"><div class="cap"><b>XAUUSD · M15</b> — Demand zone marked as text, clean long entry.</div></div>
+      <div class="shot reveal"><img src="assets/BTC-Indikator_BSP2.jpg" alt="WDM Indicator on Bitcoin" loading="lazy"><div class="cap"><b>BTC/USD · H1</b> — Supply zone detected, short before the pullback.</div></div>
+      <div class="shot reveal"><img src="assets/photo_2026-05-26_23.16.21.jpeg" alt="WDM Indicator setup on Gold" loading="lazy"><div class="cap"><b>Gold · H4</b> — Strong zone confirmed, multi-day trend captured.</div></div>
+      <div class="shot reveal"><img src="assets/photo_2026-05-26_23.16.35.jpeg" alt="WDM Indicator setup on Bitcoin" loading="lazy"><div class="cap"><b>BTC · M30</b> — Text signal avoids false breakout, precise re-entry.</div></div>
     </div>
   </div>
 </section>
-
-<!-- 9. PRICING -->
 <section class="pricing" id="pricing">
   <div class="wrap center">
     <div class="sec-head reveal" style="margin-bottom:26px">
@@ -444,15 +389,12 @@
       <p>Set up once — trade more clearly forever.</p>
     </div>
     <div class="scarcity-pill reveal">⚠️ Only 7 spots left at this price</div>
-
     <div class="plans">
       <div class="plan reveal">
         <div class="pname">Monthly</div>
         <div class="pdesc">Full access, cancel anytime</div>
-        <div class="price">
-          <span class="now">99 €</span>
-        </div>
-        <span class="per">per month</span>
+        <div class="price"><span class="now">99 €</span></div>
+        <span style="color:var(--muted);font-size:14px">per month</span>
         <ul>
           <li><span class="chk">✓</span> WDM Indicator for Gold &amp; BTC</li>
           <li><span class="chk">✓</span> Text zones &amp; updates included</li>
@@ -463,16 +405,12 @@
           <p class="plan-foot">Cancel anytime</p>
         </div>
       </div>
-
       <div class="plan best reveal">
         <span class="badge gold">Most popular</span>
         <div class="pname">Annual Plan</div>
         <div class="pdesc">12 months full access</div>
-        <div class="price">
-          <span class="now">999 €</span>
-          <span class="was">1.188 €</span>
-        </div>
-        <span class="per">per year · save €189 (≈16%)</span>
+        <div class="price"><span class="now">999 €</span><span class="was">1.188 €</span></div>
+        <span style="color:var(--muted);font-size:14px">per year · save €189 (≈16%)</span>
         <ul>
           <li><span class="chk">✓</span> Everything from the monthly plan</li>
           <li><span class="chk">✓</span> VIP training from support</li>
@@ -484,15 +422,12 @@
           <p class="plan-foot">Annual billing</p>
         </div>
       </div>
-
       <div class="plan reveal">
         <span class="badge disc">Limited Offer</span>
         <div class="pname">Lifetime Access</div>
         <div class="pdesc">Pay once, use forever</div>
-        <div class="price">
-          <span class="now">4.999 €</span>
-        </div>
-        <span class="per">one-time · all updates included</span>
+        <div class="price"><span class="now">4.999 €</span></div>
+        <span style="color:var(--muted);font-size:14px">one-time · all updates included</span>
         <ul>
           <li><span class="chk">✓</span> Lifetime access without subscription</li>
           <li><span class="chk">✓</span> WDM for Gold &amp; BTC without time limit</li>
@@ -507,8 +442,6 @@
     </div>
   </div>
 </section>
-
-<!-- GUARANTEE -->
 <section class="guarantee">
   <div class="wrap">
     <div class="gbox reveal">
@@ -518,8 +451,6 @@
     </div>
   </div>
 </section>
-
-<!-- 10. FAQ -->
 <section class="faq" id="faq">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -545,13 +476,11 @@
       </div>
       <div class="qa">
         <button>What plans are available and what do they cost?<span class="pm">+</span></button>
-        <div class="ans"><p>There are three options: <b>Monthly</b> for €99/month (cancel anytime), the <b>Annual Plan</b> for €999/year (instead of €1,188 — about 16% saved) and <b>Lifetime Access</b> for a one-time €4,999 including all future updates with no ongoing costs.</p></div>
+        <div class="ans"><p>Three options: <b>Monthly</b> for €99/month (cancel anytime), <b>Annual Plan</b> for €999/year (save ≈16%) and <b>Lifetime Access</b> for a one-time €4,999 including all future updates.</p></div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- FINAL CTA -->
 <section class="final">
   <div class="wrap">
     <h2>Ready to trade smarter?</h2>
@@ -559,19 +488,15 @@
     <a href="#pricing" class="btn btn-green btn-lg btn-pulse">Get WDM Now — from €99</a>
   </div>
 </section>
-
-<!-- COMMUNITY CTA -->
 <section class="community">
   <div class="wrap">
     <div class="community-card reveal">
       <h2>Join our exclusive trading community</h2>
       <p>Connect with like-minded traders, get exclusive insights and share strategies.</p>
-      <a href="https://t.me/+sUT1GzySFhIyNzI0" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg">✈️ Join Telegram Group Now</a>
+      <a href="https://t.me/WladOfBuild1" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg">✈️ Join Telegram Group Now</a>
     </div>
   </div>
 </section>
-
-<!-- 11. CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap">
     <div class="cols">
@@ -579,18 +504,9 @@
         <h2>Still have questions? Write to us.</h2>
         <p>We usually respond within a few hours.</p>
         <form id="contactForm">
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" required>
-          </div>
-          <div class="field">
-            <label for="email">E-Mail</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required>
-          </div>
-          <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" placeholder="How can we help?" required></textarea>
-          </div>
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" required></div>
+          <div class="field"><label for="email">E-Mail</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
+          <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="4" placeholder="How can we help?" required></textarea></div>
           <button type="submit" class="btn btn-gold">Send message</button>
           <span class="form-ok" id="formOk">✓ Thanks! We will be in touch shortly.</span>
         </form>
@@ -600,14 +516,12 @@
         <p class="muted">Join the WDM community and ask your question directly — 24/7 support.</p>
         <a href="https://t.me/WDMMarketAnalytics?text=Hi%20Paul%2C%20I%20have%20a%20question%20about%20the%20WDM%20Indicator" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline btn-block">✈️ Open Telegram</a>
         <a href="https://wa.me/41765800339?text=Hi%20Paul%2C%20I%20have%20a%20question%20about%20the%20WDM%20Indicator" target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline btn-block" style="margin-top:12px">💬 Open WhatsApp</a>
-        <p class="muted tg-note" style="font-size:13px">You will also receive your VIP onboarding there after purchase.</p>
+        <p class="muted" style="font-size:13px;margin-top:18px">You will also receive your VIP onboarding there after purchase.</p>
       </div>
     </div>
   </div>
 </section>
 </main>
-
-<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-top">
@@ -625,148 +539,37 @@
     </div>
     <div class="foot-share">
       <span>Share:</span>
-      <a href="https://t.me/share/url?url=https://en.wdmindikator.com/&amp;text=WDM%20Indicator%20%E2%80%93%20one%20indicator%20for%20Gold%20%26%20Bitcoin" target="_blank" rel="noopener" aria-label="Share on Telegram">Telegram</a>
-      <a href="https://wa.me/?text=WDM%20Indicator%20https%3A%2F%2Fen.wdmindikator.com%2F" target="_blank" rel="noopener" aria-label="Share on WhatsApp">WhatsApp</a>
-      <a href="https://twitter.com/intent/tweet?url=https://en.wdmindikator.com/&amp;text=WDM%20Indicator%20%E2%80%93%20one%20indicator%20for%20Gold%20%26%20Bitcoin" target="_blank" rel="noopener" aria-label="Share on X">X</a>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://en.wdmindikator.com/" target="_blank" rel="noopener" aria-label="Share on Facebook">Facebook</a>
+      <a href="https://t.me/share/url?url=https://en.wdmindikator.com/" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://wa.me/?text=WDM%20Indicator%20https%3A%2F%2Fen.wdmindikator.com%2F" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://twitter.com/intent/tweet?url=https://en.wdmindikator.com/" target="_blank" rel="noopener">X</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://en.wdmindikator.com/" target="_blank" rel="noopener">Facebook</a>
     </div>
-    <p class="disclaimer">
-      <b>Risk disclaimer:</b> Trading financial instruments such as Gold and Cryptocurrencies involves
-      significant risks and can result in the total loss of invested capital.
-      The WDM Indicator is an analytical tool and does not constitute investment, financial, or
-      tax advice. Stated accuracy values are based on historical analysis;
-      past results are no guarantee of future performance. Only trade with capital
-      you can afford to lose.
-    </p>
+    <p class="disclaimer"><b>Risk disclaimer:</b> Trading financial instruments such as Gold and Cryptocurrencies involves significant risks and can result in the total loss of invested capital. The WDM Indicator is an analytical tool and does not constitute investment, financial, or tax advice. Past results are no guarantee of future performance. Only trade with capital you can afford to lose.</p>
     <p class="copy">© 2026 WDM Indicator. All rights reserved.</p>
   </div>
 </footer>
-
 <script>
 (function(){
   "use strict";
-
-  var el = document.getElementById('countdown');
-  var STORAGE_KEY = 'wdm_countdown_end_en_v2';
-  function computeEnd(){
-    var d = new Date();
-    d.setMinutes(0, 0, 0);
-    d.setHours(d.getHours() + 2);
-    return d.getTime();
-  }
-  function setEnd(){
-    var e = computeEnd();
-    try { localStorage.setItem(STORAGE_KEY, e); } catch (err) {}
-    return e;
-  }
+  var el=document.getElementById('countdown');
+  var KEY='wdm_countdown_end_en_v2';
+  function computeEnd(){var d=new Date();d.setMinutes(0,0,0);d.setHours(d.getHours()+2);return d.getTime()}
+  function setEnd(){var e=computeEnd();try{localStorage.setItem(KEY,e)}catch(err){}return e}
   var end;
-  try {
-    var stored = parseInt(localStorage.getItem(STORAGE_KEY), 10);
-    end = (!stored || isNaN(stored) || stored <= Date.now()) ? setEnd() : stored;
-  } catch (e) {
-    end = computeEnd();
-  }
-  function pad(n){ return n < 10 ? '0' + n : '' + n; }
-  function tick(){
-    var diff = end - Date.now();
-    if (diff <= 0) { end = setEnd(); diff = end - Date.now(); }
-    var h = Math.floor(diff / 3600000);
-    var m = Math.floor((diff % 3600000) / 60000);
-    var s = Math.floor((diff % 60000) / 1000);
-    el.textContent = pad(h) + ':' + pad(m) + ':' + pad(s);
-  }
-  tick();
-  setInterval(tick, 1000);
-
-  var nav = document.getElementById('nav');
-  function onScroll(){
-    if (window.scrollY > 100) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  var reveals = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(function(r){ io.observe(r); });
-  } else {
-    reveals.forEach(function(r){ r.classList.add('in'); });
-  }
-
-  document.querySelectorAll('.qa button').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var qa = btn.parentElement;
-      var ans = qa.querySelector('.ans');
-      var isOpen = qa.classList.contains('open');
-      document.querySelectorAll('.qa').forEach(function(o){
-        o.classList.remove('open');
-        o.querySelector('.ans').style.maxHeight = null;
-      });
-      if (!isOpen){
-        qa.classList.add('open');
-        ans.style.maxHeight = ans.scrollHeight + 'px';
-      }
-    });
-  });
-
-  var form = document.getElementById('contactForm');
-  var formOk = document.getElementById('formOk');
-  var submitBtn = form.querySelector('button[type="submit"]');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    formOk.style.display = 'none';
-    var origText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value
-      })
-    })
-    .then(function(r){ return r.ok ? r.json() : Promise.reject(r); })
-    .then(function(){
-      formOk.style.display = 'block';
-      form.reset();
-      if (window.fbq) fbq('track', 'Lead');
-    })
-    .catch(function(){
-      alert('There was a problem sending. Please contact us directly via Telegram or WhatsApp.');
-    })
-    .finally(function(){
-      submitBtn.disabled = false;
-      submitBtn.textContent = origText;
-    });
-  });
-
-  var checkout = {
-    '5kQ28r45QcXJcj7f1XaZi01': 999,
-    'bJe9ATaue8Hterff1XaZi02': 4999,
-    '7sY3cvdGq8Ht3MBaLHaZi00': 99
-  };
-  document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(function(a){
-    a.addEventListener('click', function(){
-      if (!window.fbq) return;
-      var val; for (var id in checkout){ if (a.href.indexOf(id) !== -1){ val = checkout[id]; break; } }
-      fbq('track', 'InitiateCheckout', val ? { value: val, currency: 'EUR' } : {});
-    });
-  });
-
-  document.querySelectorAll('a[href*="t.me/+"]').forEach(function(a){
-    a.addEventListener('click', function(){ if (window.fbq) fbq('trackCustom', 'JoinCommunity'); });
-  });
-  document.querySelectorAll('a[href*="t.me/WDMMarketAnalytics"], a[href*="wa.me/"]').forEach(function(a){
-    a.addEventListener('click', function(){ if (window.fbq) fbq('track', 'Contact'); });
-  });
+  try{var stored=parseInt(localStorage.getItem(KEY),10);end=(!stored||isNaN(stored)||stored<=Date.now())?setEnd():stored}catch(e){end=computeEnd()}
+  function pad(n){return n<10?'0'+n:''+n}
+  function tick(){var diff=end-Date.now();if(diff<=0){end=setEnd();diff=end-Date.now()}var h=Math.floor(diff/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);el.textContent=pad(h)+':'+pad(m)+':'+pad(s)}
+  tick();setInterval(tick,1000);
+  var nav=document.getElementById('nav');
+  function onScroll(){if(window.scrollY>100)nav.classList.add('scrolled');else nav.classList.remove('scrolled')}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var reveals=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});reveals.forEach(function(r){io.observe(r)})}else{reveals.forEach(function(r){r.classList.add('in')})}
+  document.querySelectorAll('.qa button').forEach(function(btn){btn.addEventListener('click',function(){var qa=btn.parentElement,ans=qa.querySelector('.ans'),isOpen=qa.classList.contains('open');document.querySelectorAll('.qa').forEach(function(o){o.classList.remove('open');o.querySelector('.ans').style.maxHeight=null});if(!isOpen){qa.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}})});
+  var form=document.getElementById('contactForm'),formOk=document.getElementById('formOk'),submitBtn=form.querySelector('button[type="submit"]');
+  form.addEventListener('submit',function(e){e.preventDefault();formOk.style.display='none';var origText=submitBtn.textContent;submitBtn.disabled=true;submitBtn.textContent='Sending…';fetch('/api/contact',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({name:document.getElementById('name').value,email:document.getElementById('email').value,message:document.getElementById('message').value})}).then(function(r){return r.ok?r.json():Promise.reject(r)}).then(function(){formOk.style.display='block';form.reset();if(window.fbq)fbq('track','Lead')}).catch(function(){alert('There was a problem sending. Please contact us directly via Telegram or WhatsApp.')}).finally(function(){submitBtn.disabled=false;submitBtn.textContent=origText})});
+  document.querySelectorAll('a[href*="t.me/+"]').forEach(function(a){a.addEventListener('click',function(){if(window.fbq)fbq('trackCustom','JoinCommunity')})});
+  document.querySelectorAll('a[href*="t.me/WDMMarketAnalytics"],a[href*="wa.me/"]').forEach(function(a){a.addEventListener('click',function(){if(window.fbq)fbq('track','Contact')})});
 })();
 </script>
 </body>
